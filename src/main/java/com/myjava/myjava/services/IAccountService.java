@@ -5,9 +5,9 @@ import java.util.List;
 import com.myjava.myjava.entity.Account;
 
 public interface IAccountService {
-    int add(Account account);
+    int add(String name, double money);
 
-    int update(Account account);
+    int update(int id, String name, double money);
 
     int delete(int id);
 

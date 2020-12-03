@@ -27,13 +27,9 @@ public class Acount {
     public String updateAccount(@PathVariable("id") int id,
         @RequestParam(value = "name", required = true) String name,
         @RequestParam(value = "money", required = true) double money) {
-        Account account = new Account();
-        account.setId(id);
-        account.setName(name);
-        account.setMoney(money);
-        int t = accountService.update(account);
+        int t = accountService.update(id, name, money);
         if (t == 1) {
-            return account.toString();
+            return "success";
         } else {
             return "fail";
         }
@@ -42,12 +38,9 @@ public class Acount {
     @PostMapping("/add")
     public String addAccount(@RequestParam(value = "name", required = true) String name,
       @RequestParam(value = "money", required = true) double money) {
-        Account account = new Account();
-        account.setName(name);
-        account.setMoney(money);
-        int t = accountService.add(account);
+        int t = accountService.add(name, money);
         if (t == 1) {
-            return account.toString();
+            return "success";
         } else {
             return "fail";
         }
